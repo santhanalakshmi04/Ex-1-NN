@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>NAME: SANTHANA LAKSHMI K</H3>
+<H3>REGISTER NO: 212222240091</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE: 15.03.2025</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,14 +37,92 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+```
 
+```
+df=pd.read_csv("/content/Churn_Modelling.csv", index_col="RowNumber")
+df
+```
+
+```
+df.drop(['CustomerId'],axis=1,inplace=True)
+df.drop(['Surname'],axis=1,inplace=True)
+df.drop('Age',axis=1,inplace=True)
+df.drop('Geography',axis=1,inplace=True)
+df.drop('Gender',axis=1,inplace=True)
+df
+```
+
+```
+df.isnull().sum()
+```
+
+```
+df.duplicated()
+```
+
+```
+df.describe()
+```
+
+```
+scaler=StandardScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+df1
+```
+
+```
+x=df1.iloc[:,:-1].values
+x
+```
+
+```
+y=df1.iloc[:,-1].values
+y
+```
+
+```
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(x_train)
+print(len(x_train))
+print(x_test)
+print(len(x_test))
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+## DATASET:
+![Screenshot 2025-03-10 154144](https://github.com/user-attachments/assets/a35e4788-9992-4790-b149-8ff8eba05b67)
+
+## DROPPING THE UNWANTED DATASET:
+![Screenshot 2025-03-10 154200](https://github.com/user-attachments/assets/7529e14c-021c-44e0-b686-e2db15804ead)
+
+## CHECKING NULL VALUES:
+![Screenshot 2025-03-10 154208](https://github.com/user-attachments/assets/51983d5f-602f-491d-a82c-793a68658267)
+
+## CHECKING FOR DUPLICATION:
+![Screenshot 2025-03-10 154240](https://github.com/user-attachments/assets/888daf01-95f4-4c83-ad80-7465cc4cfe7b)
+
+## DESCRIBING THE DATASET:
+![Screenshot 2025-03-10 154249](https://github.com/user-attachments/assets/1a633ece-a020-487c-9187-f1ed5607ddba)
+
+
+## SCALING THE DATASET:
+![Screenshot 2025-03-10 154259](https://github.com/user-attachments/assets/e6025ef5-f15f-468c-b124-535417f6ca23)
+
+## X FEATURES:
+![Screenshot 2025-03-10 154308](https://github.com/user-attachments/assets/6a279396-d46c-4299-9dcd-02c2a1d638d1)
+
+## Y FEATURES:
+![Screenshot 2025-03-10 154314](https://github.com/user-attachments/assets/49cf7fe8-f7e8-4253-829b-23ca374dd9a1)
+
+## SPLITTING THE TRAINING AND TESTING DATASET:
+![Screenshot 2025-03-10 154330](https://github.com/user-attachments/assets/e04487b2-f0d5-4ed8-9cf5-13f08887687d)
 
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
-
-
